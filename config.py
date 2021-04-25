@@ -1,17 +1,19 @@
 import tweepy
 import logging
+from dotenv import load_dotenv
 import os 
+import creds
 
 logger = logging.getLogger()
 
 def create_api():
-    consumer_key = os.getenv('API_KEY')
-    consumer_secret = os.getenv('API_SECRET')
+    consumer_key = creds.API_KEY
+    consumer_secret = creds.API_SECRET
 
-    access_token = os.getenv('ACCESS_TOKEN')
-    access_token_secret = os.getenv('ACCESS_TOKEN_SECRET')
+    access_token = creds.ACCESS_TOKEN
+    access_token_secret = creds.ACCESS_TOKEN_SECRET
 
-    auth = os.getenv('BEARER_TOKEN')
+    auth = creds.BEARER_TOKEN
 
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
@@ -22,5 +24,6 @@ def create_api():
     except Exception as e:
         logger.error("Error creating API", exc_info=True)
         raise e
+        
     logger.info("API created")
     return api
