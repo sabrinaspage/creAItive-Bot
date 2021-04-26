@@ -1,2 +1,2 @@
-# creAItive-Bots
- Misinformative Twitter bot
+# Media Ethics AI Twitter Bot
+ A Misinformative Twitter bot
